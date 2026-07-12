@@ -1,0 +1,36 @@
+# Core ML/Data
+torch>=2.0.0
+pytorch-lightning>=2.0.0
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Biology & Chemistry
+biopython>=1.81
+rdkit>=2023.09.0
+py3Dmol>=2.0.0  # Protein visualization
+
+# Pre-trained models
+transformers>=4.30.0
+fair-esm>=2.0.0  # Facebook's ESM models
+
+# Config & ML Ops
+hydra-core>=1.3.0
+wandb>=0.15.0  # Experiment tracking
+tensorboard>=2.13.0
+
+# Data
+polars>=0.18.0  # Fast dataframes
+requests>=2.31.0  # API calls
+
+# Testing & Development
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.7.0
+isort>=5.12.0
+flake8>=6.0.0
+
+# Jupyter (optional)
+jupyter>=1.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
