@@ -1,0 +1,49 @@
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ML artifacts
+*.pt
+*.pth
+*.pkl
+*.joblib
+checkpoints/
+wandb/
+lightning_logs/
+.tensorboard/
+
+# Data (can be large)
+data/raw/
+data/processed/
+*.fasta
+*.pdb
+*.mol2
+*.sdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Output
+results/
+plots/
+*.csv
+*.json
+output.log
+
+# Environment
+.env
+.env.local
+config_local.yaml
