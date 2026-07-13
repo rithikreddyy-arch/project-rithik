@@ -1,0 +1,61 @@
+# enzyme_design.yaml
+# Configuration for de novo enzyme design
+
+tools:
+  rfdiffusion:
+    exe: /opt/rf_diffusion_all_atom/run_inference.py
+    ckpt: /opt/weights/RFdiffusionAA_paper_weights.pt
+
+  ligandmpnn:
+    exe: /opt/LigandMPNN/run.py
+    ckpt: /opt/weights/ligandmpnn_v_32_010_25.pt
+    temperature: 0.1
+
+  esmfold:
+    device: cuda
+
+  catalytic_scorer:
+    ckpt: null
+
+scaffold:
+  length_range: [120, 220]
+  n_backbones: 1000
+  seqs_per_backbone: 8
+  symmetry: null
+  hotspot_padding: 8.0
+  fold_prior: null
+
+filters:
+  min_plddt: 80.0
+  max_bb_rmsd: 2.0
+  max_motif_rmsd: 1.0
+  max_constraint_dev: 0.5
+  min_frac_satisfied: 1.0
+  min_catalytic_score: 0.5
+  max_hydrophobic_sasa: 0.35
+
+output:
+  top_n: 96
+
+data:
+  cache_dir: ./data_cache
+  num_workers: 4
+  max_sites: null
+  decoy_kinds:
+    - identity_swap
+    - geometry_jitter
+    - rotamer_flip
+
+model:
+  dim: 128
+  layers: 4
+
+training:
+  batch_size: 16
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  dist_loss_weight: 0.3
+  warmup_steps: 500
+  max_steps: 20000
+  precision: 32-true
+  output_dir: ./runs/scorer
